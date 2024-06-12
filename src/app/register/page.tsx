@@ -10,12 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
-function Login() {
+function Register() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Sign-In</CardTitle>
+          <CardTitle>Sign-Up</CardTitle>
         </CardHeader>
         <CardContent>
           <form>
@@ -34,15 +34,15 @@ function Login() {
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Button type="submit">Login</Button>
+                <Button type="submit">Register</Button>
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <span>OR</span>
-          <Link href="/register" className="hover:underline">
-            {`Don't have an account? Signup`}
+          <Link href="/login" className="hover:underline">
+            {`Already have an account? Sign-in`}
           </Link>
         </CardFooter>
       </Card>
@@ -50,4 +50,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
