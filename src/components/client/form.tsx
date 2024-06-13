@@ -6,8 +6,10 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { credentialsLogin } from "@/actions/login";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   return (
     <form
       action={async (formData) => {
@@ -26,6 +28,7 @@ const LoginForm = () => {
           toast.success("Login Successfull", {
             id: toastId,
           });
+          router.refresh();
         } else {
           toast.error(error, {
             id: toastId,

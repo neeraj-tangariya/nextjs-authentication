@@ -7,8 +7,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { auth } from "../auth";
+import { redirect } from "next/navigation";
 
 async function Login() {
+  const session = await auth();
+  if (session?.user) {
+    redirect("/");
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
