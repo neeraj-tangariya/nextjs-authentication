@@ -21,6 +21,10 @@ function Register() {
           <form>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" name="name" placeholder="name" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" name="email" placeholder="email" />
               </div>
@@ -34,7 +38,7 @@ function Register() {
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Button type="submit">Register</Button>
+                <Button type="submit">Sign Up</Button>
               </div>
             </div>
           </form>

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { LoginForm } from "@/components/client/form";
 import {
   Card,
   CardContent,
@@ -6,11 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
-function Login() {
+async function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
@@ -18,26 +16,7 @@ function Login() {
           <CardTitle>Sign-In</CardTitle>
         </CardHeader>
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" placeholder="email" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  name="password"
-                  placeholder="password"
-                  type="password"
-                />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Button type="submit">Login</Button>
-              </div>
-            </div>
-          </form>
+          <LoginForm />
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <span>OR</span>
