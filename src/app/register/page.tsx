@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import RegisterForm from "@/components/client/register-form";
 import {
   Card,
   CardContent,
@@ -6,11 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { auth } from "../auth";
+import { redirect } from "next/navigation";
 
-function Register() {
+async function Register() {
+  const session = await auth();
+  if (session?.user) {
+    redirect("/");
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
@@ -18,30 +22,7 @@ function Register() {
           <CardTitle>Sign-Up</CardTitle>
         </CardHeader>
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" name="name" placeholder="name" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" placeholder="email" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  name="password"
-                  placeholder="password"
-                  type="password"
-                />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Button type="submit">Sign Up</Button>
-              </div>
-            </div>
-          </form>
+          <RegisterForm />
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <span>OR</span>
